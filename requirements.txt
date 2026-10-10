@@ -1,0 +1,10 @@
+torch
+transformers
+sentence-transformers
+sentencepiece
+faiss-cpu
+wfdb
+numpy
+pandas
+scikit-learn
+matplotlib

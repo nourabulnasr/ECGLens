@@ -1,0 +1,57 @@
+{
+ "runs": [
+  {
+   "run_id": "2026-09-25T23:28:53",
+   "gallery_language_counts": {
+    "de": 764,
+    "en": 473
+   },
+   "test_query_language_counts": {
+    "de": 1327,
+    "en": 763
+   },
+   "translated": {
+    "top10_in_query_language": 0.7336842105263158,
+    "top10_language_base_rate_if_random": 0.5317414024515245,
+    "same_language_gallery": {
+     "strict_R@10": 0.5076555023923445,
+     "prior_strict_R@10": 0.3133971291866029,
+     "random_strict_R@10": 0.016028798168299257,
+     "P@10_same_set": 0.4347368421052631,
+     "prior_P@10_same_set": 0.33411483253588514
+    },
+    "ecg_embedding_predicts_report_language_auroc": 0.8600564345121635
+   },
+   "untranslated": {
+    "top10_in_query_language": 0.741578947368421,
+    "top10_language_base_rate_if_random": 0.5317414024515245,
+    "same_language_gallery": {
+     "strict_R@10": 0.5220095693779905,
+     "prior_strict_R@10": 0.3133971291866029,
+     "random_strict_R@10": 0.016028798168299257,
+     "P@10_same_set": 0.42086124401913877,
+     "prior_P@10_same_set": 0.33411483253588514
+    },
+    "ecg_embedding_predicts_report_language_auroc": 0.8591102626071481
+   }
+  },
+  {
+   "run_id": "2026-09-25T23:30:50",
+   "kind": "marker_and_edit_annotation_subset",
+   "frac_all_rows_with_remnant_or_edit": 0.03634221069997643,
+   "frac_test_queries_with_remnant_or_edit": 0.049760765550239235,
+   "n_test_leaky": 104,
+   "n_train_leaky": 574,
+   "translated": {
+    "strict_R@10_all": 0.438755980861244,
+    "strict_R@10_queries_without_remnant": 0.43303121852970794,
+    "strict_R@10_queries_with_remnant": 0.5480769230769231
+   },
+   "untranslated": {
+    "strict_R@10_all": 0.4449760765550239,
+    "strict_R@10_queries_without_remnant": 0.43705941591137965,
+    "strict_R@10_queries_with_remnant": 0.5961538461538461
+   }
+  }
+ ]
+}

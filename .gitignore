@@ -1,0 +1,9 @@
+data/raw/
+data/*.log
+data/signals_*.npy
+data/text_emb_*.npy
+data/de_unique.json
+__pycache__/
+*.pyc
+.env
+data/_tmp*

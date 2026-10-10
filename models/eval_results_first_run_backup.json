@@ -1,0 +1,221 @@
+{
+ "runs": [
+  {
+   "run_id": "first-run-2026-09-25T23:28:13",
+   "CLAIM_UNDER_TEST": "A small 1D-ResNet ECG encoder contrastively aligned to sentence embeddings of PTB-XL reports (German reports machine-translated to English) supports ECG->report retrieval and zero-shot triage on the held-out fold 10: C1 (retrieval) strict ECG->report R@10 over the unique-report gallery is >= 5x random AND beats a training-frequency-prior baseline by >= 0.05 absolute on BOTH strict R@10 and same-superclass-set P@10; C2 (zero-shot) macro-AUROC over the 5 diagnostic superclasses with SCP-statement text prompts and no classifier head is >= 0.75; C3 (translation is load-bearing) translated-arm same-superclass-set P@10 exceeds the untranslated-arm value by >= 0.02 with a paired-bootstrap 95% CI lower bound > 0.",
+   "thresholds_preregistered": {
+    "R10_x_random": 5.0,
+    "margin_over_prior": 0.05,
+    "zs_macro_auc": 0.75,
+    "translation_delta": 0.02
+   },
+   "verdict_rule": "REFUTED if C1 fails; CONFIRMED if C1, C2 and C3 all pass; otherwise PARTIAL (say which failed).",
+   "setup": {
+    "test_ecgs": 2090,
+    "gallery_unique_reports": 1237,
+    "train_ecgs": 17065,
+    "note": "strict relevance = identical cleaned report string; same-set relevance = same PTB-XL diagnostic-superclass set"
+   },
+   "baselines": {
+    "random": {
+     "R@1": 0.0008084074373484236,
+     "R@5": 0.004042037186742118,
+     "R@10": 0.008084074373484237,
+     "P@10_same_set": 0.14086286856996977
+    },
+    "training_frequency_prior": {
+     "R@1": 0.09043062200956938,
+     "R@5": 0.25885167464114833,
+     "R@10": 0.2880382775119617,
+     "median_rank": 227.5,
+     "MRR": 0.16417220235377408,
+     "P@10_same_set": 0.3551674641148325
+    },
+    "labels_only_oracle_random_tiebreak": {
+     "R@1": 0.007177033492822967,
+     "R@5": 0.04832535885167464,
+     "R@10": 0.09186602870813397,
+     "median_rank": 84.0,
+     "MRR": 0.043555891531029046,
+     "P@10_same_set": 0.9789952153110048
+    }
+   },
+   "arms": {
+    "translated": {
+     "best_epoch": 20,
+     "val_R@10_at_best": 0.4703883495145631,
+     "ecg_to_report_strict": {
+      "R@1": 0.10047846889952153,
+      "R@5": 0.315311004784689,
+      "R@10": 0.438755980861244,
+      "median_rank": 14.0,
+      "MRR": 0.20843784598110443
+     },
+     "ecg_to_report_R@10_ci95": [
+      0.41673444976076557,
+      0.4602870813397129
+     ],
+     "ecg_to_report_P@10_same_set": 0.43688995215311005,
+     "ecg_to_report_P@10_same_set_ci95": [
+      0.4240191387559809,
+      0.4493313397129187
+     ],
+     "report_to_ecg": {
+      "R@10_any_identical_report": 0.4939369442198868,
+      "R@10_random": 0.007549883096828274,
+      "P@10_same_set": 0.36362166531932094
+     },
+     "zero_shot_auroc": {
+      "statements": {
+       "per_class": {
+        "NORM": 0.8746332860153999,
+        "MI": 0.6610488658153482,
+        "STTC": 0.7091040600624708,
+        "CD": 0.7743622118622119,
+        "HYP": 0.7352145699128457
+       },
+       "macro": 0.7508725987336553
+      },
+      "names": {
+       "per_class": {
+        "NORM": 0.8746332860153999,
+        "MI": 0.7401600301905268,
+        "STTC": 0.8146215048752268,
+        "CD": 0.45755228567728573,
+        "HYP": 0.7763167866616143
+       },
+       "macro": 0.7326567786840107
+      }
+     },
+     "faiss_top10_agrees_with_numpy": 0.9899521531100478
+    },
+    "untranslated": {
+     "best_epoch": 17,
+     "val_R@10_at_best": 0.48349514563106794,
+     "ecg_to_report_strict": {
+      "R@1": 0.10622009569377991,
+      "R@5": 0.3124401913875598,
+      "R@10": 0.4449760765550239,
+      "median_rank": 13.0,
+      "MRR": 0.21545107250043197
+     },
+     "ecg_to_report_R@10_ci95": [
+      0.42248803827751197,
+      0.4660287081339713
+     ],
+     "ecg_to_report_P@10_same_set": 0.4245933014354067,
+     "ecg_to_report_P@10_same_set_ci95": [
+      0.4135861244019139,
+      0.43627033492822964
+     ],
+     "report_to_ecg": {
+      "R@10_any_identical_report": 0.5084882780921585,
+      "R@10_random": 0.007549883096828274,
+      "P@10_same_set": 0.35481002425222313
+     },
+     "zero_shot_auroc": {
+      "statements": {
+       "per_class": {
+        "NORM": 0.8810637453817218,
+        "MI": 0.5357913283831749,
+        "STTC": 0.6155164076737512,
+        "CD": 0.7282466761633428,
+        "HYP": 0.5314939370973853
+       },
+       "macro": 0.6584224189398753
+      },
+      "names": {
+       "per_class": {
+        "NORM": 0.8810637453817218,
+        "MI": 0.7314738790747011,
+        "STTC": 0.7448611109240371,
+        "CD": 0.595780184321851,
+        "HYP": 0.7493131868131868
+       },
+       "macro": 0.7404984213030996
+      }
+     },
+     "faiss_top10_agrees_with_numpy": 1.0
+    }
+   },
+   "translation_ablation_delta": {
+    "P@10_same_set_translated_minus_untranslated": 0.01229665071770335,
+    "ci95": [
+     0.005023923444976077,
+     0.01985765550239235
+    ],
+    "strict_R@10_translated_minus_untranslated": -0.006220095693779904,
+    "strict_R@10_ci95": [
+     -0.026806220095693778,
+     0.012452153110047836
+    ],
+    "zero_shot_macro_translated_minus_untranslated": 0.09245017979378001
+   },
+   "supervised_linear_probe_same_encoder": {
+    "per_class": {
+     "NORM": 0.9412674514752202,
+     "MI": 0.9137071110929786,
+     "STTC": 0.933250003030601,
+     "CD": 0.9069123392040058,
+     "HYP": 0.8780622394846533
+    },
+    "macro": 0.9146398288574918
+   },
+   "label_leakage": {
+    "report_text_only_probe_auroc": {
+     "per_class": {
+      "NORM": 0.9472849543310248,
+      "MI": 0.9332570070580556,
+      "STTC": 0.9140905435820625,
+      "CD": 0.9416197228697227,
+      "HYP": 0.8975369458128077
+     },
+     "macro": 0.9267578347307346
+    },
+    "report_string_predicts_own_superclass_set_acc": 0.7970765262252795,
+    "test_reports_seen_in_train_frac": 0.5564593301435407
+   },
+   "latency_and_size": {
+    "single_ecg_encode_ms_1thread_median": 6.153499998617917,
+    "faiss_query_ms_median_over_all_9237_unique_reports": 0.4063000014866702,
+    "train_sec_per_epoch_mean": 122.64107089042663,
+    "ecg_encoder_params": 1149824
+   },
+   "claim_checks": {
+    "C1_retrieval": {
+     "R10_vs_random": {
+      "value": 0.438755980861244,
+      "random": 0.008084074373484237,
+      "ratio": 54.27411483253588,
+      "pass": true
+     },
+     "R10_vs_prior": {
+      "value": 0.438755980861244,
+      "prior": 0.2880382775119617,
+      "pass": true
+     },
+     "P10_vs_prior": {
+      "value": 0.43688995215311005,
+      "prior": 0.3551674641148325,
+      "pass": true
+     },
+     "pass": true
+    },
+    "C2_zero_shot": {
+     "value": 0.7508725987336553,
+     "threshold": 0.75,
+     "pass": true
+    },
+    "C3_translation_load_bearing": {
+     "value": 0.01229665071770335,
+     "ci95": [
+      0.005023923444976077,
+      0.01985765550239235
+     ],
+     "pass": false
+    }
+   },
+   "verdict": "PARTIAL"
+  }
+ ]
+}

@@ -1,0 +1,124 @@
+{
+ "index": {
+  "statements/NORM": [
+   0
+  ],
+  "statements/MI": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14
+  ],
+  "statements/STTC": [
+   15,
+   16,
+   17,
+   18,
+   19,
+   20,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27
+  ],
+  "statements/CD": [
+   28,
+   29,
+   30,
+   31,
+   32,
+   33,
+   34,
+   35,
+   36,
+   37,
+   38
+  ],
+  "statements/HYP": [
+   39,
+   40,
+   41,
+   42,
+   43
+  ],
+  "names/NORM": [
+   44
+  ],
+  "names/MI": [
+   45
+  ],
+  "names/STTC": [
+   46
+  ],
+  "names/CD": [
+   47
+  ],
+  "names/HYP": [
+   48
+  ]
+ },
+ "prompts": [
+  "normal ecg",
+  "inferior myocardial infarction",
+  "anteroseptal myocardial infarction",
+  "inferolateral myocardial infarction",
+  "anterior myocardial infarction",
+  "anterolateral myocardial infarction",
+  "subendocardial injury in anteroseptal leads",
+  "lateral myocardial infarction",
+  "subendocardial injury in anterolateral leads",
+  "inferoposterolateral myocardial infarction",
+  "inferoposterior myocardial infarction",
+  "subendocardial injury in inferior leads",
+  "subendocardial injury in lateral leads",
+  "posterior myocardial infarction",
+  "subendocardial injury in inferolateral leads",
+  "non-diagnostic t abnormalities",
+  "non-specific st changes",
+  "digitalis-effect",
+  "long qt-interval",
+  "non-specific ischemic",
+  "ischemic in anterolateral leads",
+  "ischemic in inferior leads",
+  "ischemic in inferolateral leads",
+  "ischemic in anteroseptal leads",
+  "ischemic in lateral leads",
+  "st-t changes compatible with ventricular aneurysm",
+  "electrolytic disturbance or drug (former edis)",
+  "ischemic in anterior leads",
+  "left anterior fascicular block",
+  "incomplete right bundle branch block",
+  "first degree av block",
+  "non-specific intraventricular conduction disturbance (block)",
+  "complete right bundle branch block",
+  "complete left bundle branch block",
+  "left posterior fascicular block",
+  "wolf-parkinson-white syndrome",
+  "incomplete left bundle branch block",
+  "third degree av block",
+  "second degree av block",
+  "left ventricular hypertrophy",
+  "left atrial overload/enlargement",
+  "right ventricular hypertrophy",
+  "right atrial overload/enlargement",
+  "septal hypertrophy",
+  "normal ecg",
+  "myocardial infarction",
+  "st-t changes",
+  "conduction disturbance",
+  "hypertrophy"
+ ]
+}
